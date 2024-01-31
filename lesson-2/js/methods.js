@@ -1,3 +1,4 @@
+
 var output = document.querySelector('p');
         
 /* STEP 1: String Length */
