@@ -13,13 +13,13 @@ for (let i = 1; i < 6; i ++) {
 		/* Append the new image element to the thumbBar div, named in STEP 1 */
 		thumbBar.appendChild(newImage);
 		/* STEP 3c: Build event handler for each <img> */
-		newImage.addEventListener("click", function(event) {
-			//console.log(event.target);
-			// Grab the src attribute value
-			let imgSrc = event.target.getAttribute("src");
-			//console.log(imgSrc);
-			displayImage(imgSrc);
-		});
+		// newImage.addEventListener("click", function(event) {
+		// 	//console.log(event.target);
+		// 	// Grab the src attribute value
+		// 	let imgSrc = event.target.getAttribute("src");
+		// 	//console.log(imgSrc);
+		// 	displayImage(imgSrc);
+		// });
 }
 /* STEP 4: Function to change the src of the main <img> */
 function displayImage(value) {
@@ -28,14 +28,16 @@ function displayImage(value) {
 }
 /* STEP 5: Event Delegation
 Instead of adding event handlers for each image, how about event delegation? Build a click handler on the parent element, and capture each target (and its attributes) from the event object */
-
+thumbBar.addEventListener("click", function(event) {
 	// event.target is the element that was clicked
-
+	console.log(event.target.nodeName);
+	if (event.target && event.target.nodeName === "IMG") {
 		// grab the src attribute of the element that was clicked
-
+		let imgSrc = event.target.getAttribute("src");
 		// change the main image
-		
-
+		displayImage(imgSrc);
+	}	
+});
 		// Lab 6 STEP G: Call the clearWayfinding() function that you built below - and enjoy the result!
 
 		// Lab 6 STEP A: Inside the thumbBar.onclick event handler function, and also inside the if statement, change the event.target CSS outline property to "5px solid red"
