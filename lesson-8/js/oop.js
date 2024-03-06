@@ -1,7 +1,13 @@
 const output = document.getElementById('output');
 
 /* STEP 1a: Create a new object using a regular function */
-
+function createAlbum(name) {
+    const obj = {};
+    obj.name = name;
+    obj.describe = function() {
+        alert(`This album is called ${this.name}.`);
+    }
+}
 
 /* STEP 1b: Use the console to create a new vehicle object, and then invoke the function represented using .description() */
 
